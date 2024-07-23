@@ -8,6 +8,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import { MainHeader } from "@/components/navbar";
 import { cookies } from "next/headers";
 import CanvasCursor from "@/components/canvascursor";
+import { verifyAuth } from "@/lib/auth";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -17,8 +18,6 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
-  const authCookie = cookies().get("auth_session");
-  const isAuthenticated = authCookie ? true : false;
   return (
     <html suppressHydrationWarning className="h-full">
       <body
@@ -34,10 +33,7 @@ export default function RootLayout({ children }) {
           disableTransitionOnChange
         >
           <CanvasCursor />
-          <MainHeader isUserAuthenticated={isAuthenticated} />
-          <div className="absolute right-0 top-0 z-50 m-4">
-            <ModeToggle />
-          </div>
+          <MainHeader isUserAuthenticated={verifyAuth()} />
           {children}
           <SpeedInsights />
           <Analytics />

@@ -13,7 +13,8 @@ const CardBody = ({ className = "", content }) => (
     <h3 className="mb-1 mt-3 text-lg font-bold tracking-tighter">
       {content.title}
     </h3>
-    <p className="text-sm leading-5">{content.description}</p>
+    <p className="text-sm leading-5">{content.startDate}</p>
+    <p className="text-sm leading-5">{content.endDate}</p>
   </div>
 );
 //======================================
@@ -24,7 +25,7 @@ export default function EventCard({ cardContent }) {
         <Image
           fill
           className="rounded-xl shadow-[0px_0px_10px_#A1A1AA] dark:shadow-[0px_0px_12px_rgb(39,39,42,0.7)]"
-          src="/lemons.jpeg"
+          src={cardContent.image}
           placeholder="blur"
           blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkAAIAAAoAAv/lxKUAAAAASUVORK5CYII="
           alt="image"

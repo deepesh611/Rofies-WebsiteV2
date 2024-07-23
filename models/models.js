@@ -20,6 +20,10 @@ const sessionSchema = new mongoose.Schema({
     type: Date,
     required: true,
   },
+  role: {
+    type: String,
+    required: true,
+  },
 });
 
 const eventSchema = new mongoose.Schema({

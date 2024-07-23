@@ -5,7 +5,6 @@ import {
   useScroll,
   useTransform,
   useSpring,
-  MotionValue,
 } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
@@ -128,6 +127,7 @@ export const ProductCard = ({
         className="block group-hover/product:shadow-2xl "
       >
         <Image
+          priority
           src={product.thumbnail}
           height="600"
           width="600"

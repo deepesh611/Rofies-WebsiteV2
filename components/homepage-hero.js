@@ -1,7 +1,9 @@
 import { Button } from "@/components/ui/button";
+import { verifyAuth } from "@/lib/auth";
 import Link from "next/link";
 
-export default function HeroSection() {
+export default function HomePageHeroSection() {
+  const auth = verifyAuth();
   return (
     <>
       {/* Hero */}
@@ -34,14 +36,18 @@ export default function HeroSection() {
               </div>
               {/* Buttons */}
               <div className="mt-8 flex justify-center gap-3">
-                <Link href="/signup">
-                  <Button size={"lg"}>Get started</Button>
-                </Link>
-                <Link href="/about">
-                  <Button size={"lg"} variant={"outline"}>
-                    Learn more
+                {!auth ? (
+                  <Button size={"lg"} asChild>
+                    <Link href="/signup">Get started</Link>
                   </Button>
-                </Link>
+                ) : (
+                  <Button size={"lg"} asChild>
+                    <Link href="/events">Current Events </Link>
+                  </Button>
+                )}
+                <Button size={"lg"} variant={"outline"} asChild>
+                  <Link href="/about">Learn more</Link>
+                </Button>
               </div>
               {/* End Buttons */}
             </div>

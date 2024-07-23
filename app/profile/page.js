@@ -17,14 +17,16 @@ export default function ProfilePage() {
   };
   return (
     <>
-      <h1 className="text-orange-400">Profile Page</h1>
-      <form onSubmit={handleLogoutSubmitHandler}>
-        <SubmitButton
-          label={"Logout"}
-          variant={"destructive"}
-          type={"submit"}
-        />
-      </form>
+      <div className="py-14">
+        <h1 className="text-orange-400">Profile Page</h1>
+        <form onSubmit={handleLogoutSubmitHandler}>
+          <SubmitButton
+            label={"Logout"}
+            variant={"destructive"}
+            type={"submit"}
+          />
+        </form>
+      </div>
     </>
   );
 }

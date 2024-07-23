@@ -2,12 +2,15 @@ import { NextResponse } from "next/server";
 
 export async function middleware(request) {
   const url = new URL(request.url).pathname;
-  let protected_url = ["/events"];
+  let protected_url = ["/events, /admin"];
   if (protected_url.includes(url)) {
     let authCookie = request.cookies.get("auth_session");
     if (!authCookie) {
       return NextResponse.redirect(new URL("/signup", request.url));
     }
+    // if (url === "/admin" && user.role !== "admin") {
+    //   return NextResponse.redirect(new URL("/", request.url));
+    // }
   }
   return NextResponse.next();
 }

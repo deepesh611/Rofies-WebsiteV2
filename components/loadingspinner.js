@@ -1,7 +1,7 @@
 import { useTheme } from "next-themes";
 import { FidgetSpinner } from "react-loader-spinner";
 
-export default function GalleryLoading() {
+export default function LoadingSpinner() {
   const { theme } = useTheme();
   return (
     <div className="flex h-screen items-center justify-center">

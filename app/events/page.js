@@ -9,23 +9,8 @@ export default async function EventPage() {
   return (
     <div className="grid grid-cols-4 gap-4">
       {eventcards.map((cardContent) => (
-        <EventCard key={cardContent._id.toString()} cardContent={cardContent} />
+        <EventCard key={cardContent._id} cardContent={cardContent} />
       ))}
     </div>
   );
 }
-
-// const cards = [
-//   {
-//     id: 1,
-//     title: "Lorem ipsum dolor",
-//     description:
-//       "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nostrum, hic ipsum!",
-//   },
-//   {
-//     id: 2,
-//     title: "Lorem ipsum dolor sit",
-//     description:
-//       "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nostrum, hic ipsum!",
-//   },
-// ];

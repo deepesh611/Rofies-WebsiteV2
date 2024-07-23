@@ -1,5 +1,5 @@
 import React from "react";
-import { FloatingNav } from "./ui/navbar";
+import { FloatingNav } from "./ui/Floatingnavbar";
 import {
   IconCalendarEvent,
   IconHome,

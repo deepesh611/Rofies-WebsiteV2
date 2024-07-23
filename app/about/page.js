@@ -1,9 +1,18 @@
 "use client";
-import React from "react";
+import React, { Suspense } from "react";
 import { AboutParallaxUI } from "@/components/ui/about-parallax";
+import LoadingSpinner from "@/components/loadingspinner";
+import Vision from "@/components/vision";
 
 export default function AboutParallax() {
-  return <AboutParallaxUI products={products} />;
+  return (
+    <>
+      <Suspense fallback={<LoadingSpinner />}>
+        <AboutParallaxUI products={products} />
+      </Suspense>
+      <Vision />
+    </>
+  );
 }
 export const products = [
   {
