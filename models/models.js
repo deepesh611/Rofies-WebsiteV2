@@ -6,6 +6,7 @@ const userSchema = new mongoose.Schema({
   hashed_password: { type: String },
   github_id: { type: String },
   google_id: { type: String },
+  role: { type: String },
 });
 const sessionSchema = new mongoose.Schema({
   _id: {

@@ -8,11 +8,10 @@ import { Login } from "@/lib/actions";
 import { ErrorAlert } from "./ErrorAlert";
 
 import SubmitButton from "./SubmitButton";
-export default function LoginForm() {
-  const [state, formAction] = useFormState(Login, {});
+export default function LoginForm({ mode }) {
+  const [state, formAction] = useFormState(Login.bind(null, mode), {});
   return (
     <>
-      {" "}
       {state.errors && <ErrorAlert errors={state.errors} />}
       <form className="space-y-4" action={formAction}>
         <div>

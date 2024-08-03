@@ -16,6 +16,7 @@ import FixedNavbar from "./FixedNavbar";
 import { ModeToggle } from "../modechange";
 
 export const FloatingNav = ({ navItems, className, isAuthenticated }) => {
+  const hidePaths = ["/login", "/signup"];
   const path = usePathname();
   const { scrollYProgress } = useScroll();
   const router = useRouter();
@@ -42,7 +43,7 @@ export const FloatingNav = ({ navItems, className, isAuthenticated }) => {
 
   return (
     <>
-      {isAtTop && path === "/" && (
+      {isAtTop && !hidePaths.includes(path) && (
         <FixedNavbar isAuthenticated={isAuthenticated} navItems={navItems} />
       )}
       <AnimatePresence mode="wait">

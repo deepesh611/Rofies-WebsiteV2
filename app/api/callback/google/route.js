@@ -1,4 +1,4 @@
-import { createAuthSession, google } from "@/lib/auth";
+import { createUserAuthSession, google } from "@/lib/auth";
 import { getUserbyGoogleId, saveUser } from "@/lib/user";
 import { OAuth2RequestError } from "arctic";
 import { cookies } from "next/headers";
@@ -36,7 +36,7 @@ export async function GET(request) {
     const user = await response.json();
     const existingUser = await getUserbyGoogleId(user.sub);
     if (existingUser) {
-      await createAuthSession(existingUser._id);
+      await createUserAuthSession(existingUser._id);
       return new Response("Existing User", {
         status: 302,
         headers: {
@@ -50,8 +50,9 @@ export async function GET(request) {
         googleId: user.sub,
         hashedPassword: null,
         githubId: null,
+        role: "user",
       });
-      await createAuthSession(result._id);
+      await createUserAuthSession(result._id);
       return new Response("New user", {
         status: 302,
         headers: {
