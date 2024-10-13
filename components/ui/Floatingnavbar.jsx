@@ -16,7 +16,7 @@ import FixedNavbar from "./FixedNavbar";
 import { ModeToggle } from "../modechange";
 
 export const FloatingNav = ({ navItems, className, isAuthenticated }) => {
-  const hidePaths = ["/login", "/signup"];
+  const hidePaths = ["/login", "/signup", "/events/*"];
   const path = usePathname();
   const { scrollYProgress } = useScroll();
   const router = useRouter();
